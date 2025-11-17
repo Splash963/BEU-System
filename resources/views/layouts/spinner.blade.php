@@ -22,7 +22,7 @@
 
 
 <div class="spinner-wrapper">
-    <div class="spinner-border text-danger" role="status">
+    <div class="spinner-border text-primary" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
