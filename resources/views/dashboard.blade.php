@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <style>
     .main {
@@ -81,13 +82,7 @@
         height: 13rem;
         border-radius: 0;
     }
-
-    .chart1 {
-        max-width: 100%;
-        max-height: 9rem;
-    }
-
-    @media(max-width:834px) {
+    @media(max-width:768px) {
         .main {
             width: 95%;
         }
@@ -105,22 +100,34 @@
         }
 
         .card {
-            width: 11.5rem;
+            width: 10rem;
+        }
+
+        .charts {
+            flex-wrap: wrap;
         }
 
         .chart-card {
             width: 100%;
         }
 
+        .circle {
+            width: 100%;
+            order: 1;
+        }
+
         .circle-card {
             width: 100%;
         }
 
-        .chart1 {
-            max-width: 100%;
-            min-height: 10rem;
+        .tables {
+            flex-grow: 1;
+            order: 2;
         }
 
+        .table {
+            width: 100%;
+        }
     }
 </style>
 
@@ -178,7 +185,7 @@
                         <div class="card-body" style="background-color: #CD2C58; color: white;">
                             <h5 class="card-title">Low Stock Items</h5>
                             <div class="overflow-y-scroll" style="max-height: 9rem;">
-                                <div class="card mb-3" style="border-radius: 0;" >
+                                <div class="card mb-3" style="border-radius: 0;">
                                     <div class="row g-0" style="width: 100%;">
                                         <div class="col-4">
                                             <img class="img-fluid" style="border-radius: 0;" src="images/pngtree-medical-microscope-isolated-png-image_11975870.png" alt="">
@@ -209,8 +216,8 @@
                 <div class="circle">
                     <div class="card circle-card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                            <h5 class="card-title mb-5">Monthly Summury</h5>
+                            <canvas id="myDonutChart" width="400" height="400"></canvas>
                         </div>
                     </div>
                 </div>
@@ -219,26 +226,29 @@
     </body>
 
     <script>
-        var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-        var yValues = [55, 49, 44, 24, 15];
-        var barColors = ["red", "green", "blue", "orange", "brown"];
-
-        new Chart("myChart", {
-            type: "bar",
+        const ctx = document.getElementById('myDonutChart').getContext('2d');
+        const myDonutChart = new Chart(ctx, {
+            type: 'doughnut',
             data: {
-                labels: xValues,
+                labels: ['Get Items', 'Not Added Items', 'Newly Added Items', 'Damaged items'],
                 datasets: [{
-                    backgroundColor: barColors,
-                    data: yValues
+                    data: [25, 20, 30, 25],
+                    backgroundColor: ['#36a2eb', '#ffce56', '#4bc0c0', '#ff6384'],
+                    hoverOffset: 10
                 }]
             },
             options: {
-                legend: {
-                    display: false
-                },
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
             }
         });
     </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
