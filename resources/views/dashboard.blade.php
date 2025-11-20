@@ -73,7 +73,7 @@
 
     .circle-card {
         width: 20rem;
-        height: 29rem;
+        height: 29.8rem;
         border-radius: 0;
     }
 
@@ -82,7 +82,47 @@
         height: 13rem;
         border-radius: 0;
     }
-    @media(max-width:768px) {
+
+    .item-data {
+        display: flex;
+    }
+
+    .content {
+        flex-shrink: 1;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .button-cover {
+        display: flex;
+        gap: 1em;
+    }
+
+    .chart-container {
+        position: relative;
+        width: 100%;
+        /* full width of parent */
+        max-width: 400px;
+        /* cap size for desktop */
+        margin: auto;
+        /* center it */
+    }
+
+    @media(max-width:1024px) {
         .main {
             width: 95%;
         }
@@ -128,6 +168,37 @@
         .table {
             width: 100%;
         }
+
+        .content {
+            flex-shrink: 1;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 0.5rem;
+            padding-right: 0;
+        }
+
+        .details {
+            font-size: 10px;
+        }
+
+        .btn {
+            width: 60px;
+            font-size: 8px;
+            height: 25px;
+        }
+
+        .button-cover {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        .chart-container {
+            max-width: 300px;
+        }
+
+
     }
 </style>
 
@@ -182,34 +253,98 @@
             <div class="charts me-0 mb-5">
                 <div class="tables">
                     <div class="card mb-5 table">
-                        <div class="card-body" style="background-color: #CD2C58; color: white;">
-                            <h5 class="card-title">Low Stock Items</h5>
-                            <div class="overflow-y-scroll" style="max-height: 9rem;">
-                                <div class="card mb-3" style="border-radius: 0;">
-                                    <div class="row g-0" style="width: 100%;">
-                                        <div class="col-4">
-                                            <img class="img-fluid" style="border-radius: 0;" src="images/pngtree-medical-microscope-isolated-png-image_11975870.png" alt="">
+                        <div class="card-body" style="background-color: #D1D3D4;">
+                            <p class="card-title mb-3 fw-semibold fs-4">Pending Items</p>
+                            <div class="overflow-y-scroll" style="max-height: 9rem; scrollbar-width: thin;">
+
+                                <div class="item-data" style="background-color: transparent;">
+                                    <div class="picture">
+                                        <img src="images/pngtree-medical-microscope-isolated-png-image_11975870.png" class="img-fluid" alt="" style="max-height: 8.5rem;">
+                                    </div>
+                                    <div class="content">
+                                        <div class="details">
+                                            <p>Item Name :</p>
+                                            <p>Item Category :</p>
+                                            <p>Item Quantity :</p>
                                         </div>
-                                        <div class="col-8">
-                                            <div class="card-body d-flex flex-column justify-content-between text-center" style="height: 120px;">
-                                                <div class="d-flex align-items-center justify-content-center flex-grow-1">
-                                                    <p class="fw-semibold title" style="max-height: 115px;">some texts</p>
-                                                </div>
-                                                <p class="card-text mb-0">
-                                                    <small class="text-body-secondary date">date</small>
-                                                </p>
+                                        <div class="buttons">
+                                            <div class="button-cover">
+                                                <button type="button" class="btn btn-primary">View</button>
+                                                <button type="button" class="btn btn-danger">Delete</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div class="item-data" style="background-color: transparent;">
+                                    <div class="picture">
+                                        <img src="images/pngtree-medical-microscope-isolated-png-image_11975870.png" class="img-fluid" alt="" style="max-height: 8.5rem;">
+                                    </div>
+                                    <div class="content">
+                                        <div class="details">
+                                            <p>Item Name :</p>
+                                            <p>Item Category :</p>
+                                            <p>Item Quantity :</p>
+                                        </div>
+                                        <div class="buttons">
+                                            <div class="button-cover">
+                                                <button type="button" class="btn btn-primary">View</button>
+                                                <button type="button" class="btn btn-danger">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
 
-                    <div class="card table">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                    <div class="card mb-5 table">
+                        <div class="card-body" style="background-color: #D1D3D4;">
+                            <p class="card-title fw-semibold fs-4">Low Stock Items</p>
+                            <div class="overflow-y-scroll" style="max-height: 9rem; scrollbar-width: thin;">
+
+                                <div class="item-data" style="background-color: transparent;">
+                                    <div class="picture">
+                                        <img src="images/pngtree-medical-microscope-isolated-png-image_11975870.png" class="img-fluid" alt="" style="max-height: 8.5rem;">
+                                    </div>
+                                    <div class="content">
+                                        <div class="details">
+                                            <p>Item Name :</p>
+                                            <p>Item Category :</p>
+                                            <p>Item Quantity :</p>
+                                        </div>
+                                        <div class="buttons">
+                                            <div class="button-cover">
+                                                <button type="button" class="btn btn-primary">View</button>
+                                                <button type="button" class="btn btn-danger">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="item-data" style="background-color: transparent;">
+                                    <div class="picture">
+                                        <img src="images/pngtree-medical-microscope-isolated-png-image_11975870.png" class="img-fluid" alt="" style="max-height: 8.5rem;">
+                                    </div>
+                                    <div class="content">
+                                        <div class="details">
+                                            <p>Item Name :</p>
+                                            <p>Item Category :</p>
+                                            <p>Item Quantity :</p>
+                                        </div>
+                                        <div class="buttons">
+                                            <div class="button-cover">
+                                                <button type="button" class="btn btn-primary">View</button>
+                                                <button type="button" class="btn btn-danger">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -217,7 +352,9 @@
                     <div class="card circle-card">
                         <div class="card-body">
                             <h5 class="card-title mb-5">Monthly Summury</h5>
-                            <canvas id="myDonutChart" width="400" height="400"></canvas>
+                            <div class="chart-container">
+                                <canvas id="myDonutChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -239,6 +376,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false, // allow CSS height to control chart
                 plugins: {
                     legend: {
                         position: 'bottom'
